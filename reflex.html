@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Carson Mallen Reflexes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #f4f8fb;
+                padding: 20px;
+            }
+
+            header { 
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #2c6e49;
+            }
+
+            .display { 
+                margin: 10px;
+                font-size: 22px;
+                padding: 10px 20px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                background-color: white;
+                min-width: 150px;
+                text-align: center;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 10px 20px; 
+                margin: 10px;
+                border-radius: 6px;
+                border: none;
+                cursor: pointer;
+                background-color: #2c6e49;
+                color: white;
+            }
+
+            button:hover {
+                background-color: #1f4d36;
+            }
+        </style>
+    </head>
+    <body>
+        <header>Carson Mallen Reflexes</header>
+        <div class="display" id="target">Your time</div>
+        <div class="display" id="counter">Count</div>
+
+        <button id="goButton">Go</button>
+        <button id ="haltButton" onclick="recordTime()">
+            Halt
+        </button>
+
+        <script>
+            let haltTime = undefined;
+             
+            function recordTime() {
+                haltTime = Date.now();
+                console.log("Halt pressed at:", haltTime);
+            }
+
+            document.getElementById("goButton").onclick = function() {
+                console.log("Go Pressed!");
+            }
+        </script>
+    </body>
+</html>
