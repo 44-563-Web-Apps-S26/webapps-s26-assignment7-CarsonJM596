@@ -20,8 +20,13 @@
     </head>
     <body>
         <h2>Carson Mallen builds list with divs</h2>
+
         <input type="text" id="inputText">
+
         <button onclick="addEnd()">Add end</button>
+        <button onclick="addFront()">Add front</button>
+        <button onclick="remove()"> Remove</button>
+
         <div class="flex-container" id="container">
         </div>
 
@@ -34,7 +39,32 @@
 
                 newDiv.innerHTML = value;
                 newDiv.className = "divlist";
+
                 container.appendChild(newDiv);
+            }
+
+            function addFront() {
+                let container = document.getElementById("container");
+                let newDiv = document.createElement("div");
+
+                let value = document.getElementById("inputText").value;
+
+                newDiv.innerHTML = value;
+                newDiv.className = "divlist";
+
+                container.insertBefore(newDiv, container.firstChild);
+            }
+
+            function remove() {
+                let divListItems = document.getElementsByClassName("divlist");
+                let length = divListItems.length;
+
+                if (length > 1) {
+                    divListItems[1].remove();
+                }
+                else if (length == 1){
+                    divListItems[0].remove();
+                }
             }
         </script>
     </body>
