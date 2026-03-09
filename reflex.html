@@ -53,7 +53,9 @@
         <div class="display" id="target">Your time</div>
         <div class="display" id="counter">Count</div>
 
-        <button id="goButton">Go</button>
+        <button id="goButton" onclick="beginTime()">
+            Go
+        </button>
         <button id ="haltButton" onclick="recordTime()">
             Halt
         </button>
@@ -66,9 +68,26 @@
                 console.log("Halt pressed at:", haltTime);
             }
 
-            document.getElementById("goButton").onclick = function() {
-                console.log("Go Pressed!");
+            function beginTime() {
+                haltTime = undefined;
+
+                for (let i=0; i<=5;i++){
+                    setTimeout(function(){
+                        document.getElementById("counter").innerHTML = i;
+                    }, (5 - i) * 1000);
+                }
+
+                setTimeout(function() {
+                    if (haltTime == undefined) {
+                        document.getElementById("target").innerHTML = "Not soon enough";
+                    } else {
+                        let targetTime = Date.now();
+                        let elapsed = targetTime - haltTime;
+                        document.getElementById("target").innerHTML = "Time was " + elapsed + "ms";
+                    }
+                }, 5000);
             }
+            
         </script>
     </body>
 </html>
