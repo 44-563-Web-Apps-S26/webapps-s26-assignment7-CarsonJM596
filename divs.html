@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Carson Mallen builds list with divs</title>
+        <style>
+            .flex-container { 
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .divlist {
+                background-color: lightgreen;
+                padding: 10px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Carson Mallen builds list with divs</h2>
+        <input type="text" id="inputText">
+        <button onclick="addEnd()">Add end</button>
+        <div class="flex-container" id="container">
+        </div>
+
+        <script>
+            function addEnd() {
+                let container = document.getElementById("container");
+                let newDiv = document.createElement("div");
+
+                let value = document.getElementById("inputText").value;
+
+                newDiv.innerHTML = value;
+                newDiv.className = "divlist";
+                container.appendChild(newDiv);
+            }
+        </script>
+    </body>
+</html>
